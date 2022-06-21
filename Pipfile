@@ -11,6 +11,10 @@ coverage = "python -m coverage report"
 
 [dev-packages]
 coverage = "*"
+black = "*"
 
 [requires]
 python_version = "3.8"
+
+[pipenv]
+allow_prereleases = true
