@@ -97,7 +97,7 @@ class TestLexSyntax(unittest.TestCase):
         self.assertEqual(want["string"], got["string"])
 
 
-class TextLexer(unittest.TestCase):
+class TestLex(unittest.TestCase):
     def test_lex(self):
         arg = '{"foo": [1, 2, {"bar": 2}]}'
         want = ['{', 'foo', ':', '[', 1, ',', 2,
