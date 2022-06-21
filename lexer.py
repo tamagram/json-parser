@@ -1,6 +1,3 @@
-import json
-
-
 COMMA = ','
 COLON = ':'
 LEFT_BRACKET = '['
@@ -29,25 +26,52 @@ def lex_string(text):
     raise Exception("Excepted end-of-string quote")
 
 
+def lex_number(text):
+    number_character = [str(d) for d in range(10)] + ["-", ".", "e"]
+
+    json_number = ""
+    for c in text:
+        if c in number_character:
+            json_number += c
+        else:
+            break
+
+    next_text = text[len(json_number):]
+    if json_number == "":
+        return None, text
+    else:
+        return int(json_number), next_text
+
+
+def lex_syntax(text):
+    if text[0] in SYNTAX:
+        return text[0], text[1:]
+    else:
+        return None, text
+
+
 def lex(text):
     tokens = []
     while 0 < len(text):
-        print(text)
-        
-        json_string, next_text = lex_string(text)
+        json_string, text = lex_string(text)
         if json_string is not None:
-          tokens.append(json_string)
-          text = next_text
-          continue
-        
+            tokens.append(json_string)
+            continue
+
+        json_number, text = lex_number(text)
+        if json_number is not None:
+            tokens.append(json_number)
+            continue
+
+        json_syntax, text = lex_syntax(text)
+        if json_syntax is not None:
+            tokens.append(json_syntax)
+            continue
+
         c = text[0]
         if c in WHITESPACE:
-            next_text = text[1:]
-        elif c in SYNTAX:
-            tokens.append(c)
-            next_text = text[1:]
-        else:
-            pass
+            text = text[1:]
+            continue
+        raise SyntaxError("Unexpected character {}".format(c))
 
-        text = next_text
     return tokens
