@@ -4,11 +4,13 @@ verify_ssl = true
 name = "pypi"
 
 [scripts]
-test = "python -m unittest discover -p '*_test.py' -v "
+test = "python -m coverage run -m unittest discover -p '*_test.py' -v"
+coverage = "python -m coverage report"
 
 [packages]
 
 [dev-packages]
+coverage = "*"
 
 [requires]
 python_version = "3.8"
