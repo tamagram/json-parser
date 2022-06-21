@@ -1,4 +1,4 @@
-from constant import *
+from parser.constant import *
 
 def lex_string(text):
     if text[0] != QUOTE:

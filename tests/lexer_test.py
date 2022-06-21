@@ -1,5 +1,5 @@
 import unittest
-from lexer import *
+from parser.lexer import *
 
 
 class TestLexString(unittest.TestCase):
