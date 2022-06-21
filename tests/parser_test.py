@@ -17,6 +17,13 @@ class TestParseArray(unittest.TestCase):
         got = {"json_array": json_array, "tokens": tokens}
         self.assertEqual(want, got)
 
+    def test_object_in_array(self):
+        arg = ["[", "a", "b", "c", "{", "user", ":", "hoge", "}", "]"]
+        want = {"json_array": ["a", "b", "c", {"user": "hoge"}], "tokens": []}
+        json_array, tokens = parse_array(arg)
+        got = {"json_array": json_array, "tokens": tokens}
+        self.assertEqual(want, got)
+
     def test_exception(self):
         arg = ["[", "a", "b"]
         with self.assertRaises(Exception):
