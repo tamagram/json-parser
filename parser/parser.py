@@ -12,9 +12,15 @@ def parse_array(tokens):
         t = tokens[0]
         if t == RIGHT_BRACKET:
             return arr, tokens[1:]
+        elif t == LEFT_BRACKET:
+            t, tokens = parse_array(tokens)
+        elif t == LEFT_BRACE:
+            t, tokens = parse_object(tokens)
+        else:
+            tokens = tokens[1:]
         arr.append(t)
-        tokens = tokens[1:]
     raise Exception("Excepted end-of-string RIGHT_BRACKET")
+    # return ["a", "b", "c", {"user": "hoge"}], []
 
 
 def parse_object(tokens):
