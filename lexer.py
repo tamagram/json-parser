@@ -1,14 +1,4 @@
-COMMA = ','
-COLON = ':'
-LEFT_BRACKET = '['
-RIGHT_BRACKET = ']'
-LEFT_BRACE = '{'
-RIGHT_BRACE = '}'
-QUOTE = '"'
-SYNTAX = [COMMA, COLON, LEFT_BRACKET, RIGHT_BRACKET, LEFT_BRACE, RIGHT_BRACE]
-
-WHITESPACE = [' ', '\t', '\b', '\n', '\r']
-
+from constant import *
 
 def lex_string(text):
     if text[0] != QUOTE:
