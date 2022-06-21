@@ -20,7 +20,6 @@ def parse_array(tokens):
             tokens = tokens[1:]
         arr.append(t)
     raise Exception("Excepted end-of-string RIGHT_BRACKET")
-    # return ["a", "b", "c", {"user": "hoge"}], []
 
 
 def parse_object(tokens):
@@ -55,17 +54,20 @@ def parse_object(tokens):
         
     raise Exception('Expected end-of-object bracket')
 
-# def parse(tokens):
-#     json = []
-#     while 0 < len(tokens):
-#         json_array, tokens = parse_array(tokens)
-#         if json_array is not None:
-#             json.append(json_array)
-#             continue
+def parse(tokens):
+    json = []
+    while 0 < len(tokens):
+        json_array, tokens = parse_array(tokens)
+        if json_array is not None:
+            json.append(json_array)
+            continue
 
-#         json_object, tokens = parse_object(tokens)
-#         if json_object is not None:
-#             json.append(json_object)
-#             continue
-        
-#         return json, tokens
+        json_object, tokens = parse_object(tokens)
+        if json_object is not None:
+            json.append(json_object)
+            continue
+    
+    if 1 < len(json):
+        return json
+    else:
+        return json[0]
