@@ -77,22 +77,22 @@ class TestParseObject(unittest.TestCase):
             parse_object(arg)
 
 
-# class TestParse(unittest.TestCase):
-#     def test_json(self):
-#         arg = [
-#             "{",
-#             "user",
-#             ":",
-#             "hoge",
-#             "posts",
-#             ":",
-#             "[",
-#             "a",
-#             "b",
-#             "c",
-#             "]",
-#             "}",
-#         ]
-#         want = {"user": "hoge", "posts": ["a", "b", "c"]}
-#         got = parse(arg)
-#         self.assertEqual(want, got)
+class TestParse(unittest.TestCase):
+    def test_json(self):
+        arg = [
+            "{",
+            "user",
+            ":",
+            "hoge",
+            "posts",
+            ":",
+            "[",
+            "a",
+            "b",
+            "c",
+            "]",
+            "}",
+        ]
+        want = {"user": "hoge", "posts": ["a", "b", "c"]}
+        got = parse(arg)
+        self.assertEqual(want, got)
