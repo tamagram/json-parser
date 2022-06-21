@@ -40,8 +40,8 @@ def parse_object(tokens):
 
         colon = tokens.pop(0)
         if colon != COLON:
-            raise Exception('Expected colon after key in object, got: {}'.format(colon))
-        
+            raise Exception("Expected colon after key in object, got: {}".format(colon))
+
         value = tokens[0]
         if value == LEFT_BRACKET:
             value, tokens = parse_array(tokens)
@@ -50,9 +50,9 @@ def parse_object(tokens):
         else:
             tokens = tokens[1:]
         obj[key] = value
-        
-        
-    raise Exception('Expected end-of-object bracket')
+
+    raise Exception("Expected end-of-object bracket")
+
 
 def parse(tokens):
     json = []
@@ -66,7 +66,7 @@ def parse(tokens):
         if json_object is not None:
             json.append(json_object)
             continue
-    
+
     if 1 < len(json):
         return json
     else:

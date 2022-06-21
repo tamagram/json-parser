@@ -1,5 +1,6 @@
 from parser.constant import *
 
+
 def lex_string(text):
     if text[0] != QUOTE:
         return None, text
@@ -8,7 +9,7 @@ def lex_string(text):
     text = text[1:]
     for c in text:
         if c == QUOTE:
-            next_text = text[len(json_string)+1:]
+            next_text = text[len(json_string) + 1 :]
             return json_string, next_text
         else:
             json_string += c
@@ -26,7 +27,7 @@ def lex_number(text):
         else:
             break
 
-    next_text = text[len(json_number):]
+    next_text = text[len(json_number) :]
     if json_number == "":
         return None, text
     else:

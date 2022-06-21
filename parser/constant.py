@@ -1,10 +1,10 @@
-COMMA = ','
-COLON = ':'
-LEFT_BRACKET = '['
-RIGHT_BRACKET = ']'
-LEFT_BRACE = '{'
-RIGHT_BRACE = '}'
+COMMA = ","
+COLON = ":"
+LEFT_BRACKET = "["
+RIGHT_BRACKET = "]"
+LEFT_BRACE = "{"
+RIGHT_BRACE = "}"
 QUOTE = '"'
 SYNTAX = [COMMA, COLON, LEFT_BRACKET, RIGHT_BRACKET, LEFT_BRACE, RIGHT_BRACE]
 
-WHITESPACE = [' ', '\t', '\b', '\n', '\r']
+WHITESPACE = [" ", "\t", "\b", "\n", "\r"]
