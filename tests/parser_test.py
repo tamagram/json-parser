@@ -120,3 +120,7 @@ class TestParse(unittest.TestCase):
         want = [{"user": "hoge"}, {"user": "fuga"}, {"user": "piyo"}]
         got = parse(arg)
         self.assertEqual(want, got)
+
+
+if __name__ == "__main__":
+    unittest.main()
